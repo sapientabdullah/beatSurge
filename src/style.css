@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Rock+Salt&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Jura", sans-serif;
+}
+
+#damage-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/damage-overlay.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+#controls {
+  animation: disappear 4s linear 1 forwards;
+}
+
+.font {
+  font-family: "Jura", sans-serif;
+}
+
+#health-bar {
+  transition: width 0.3s ease;
+}
