@@ -30,6 +30,7 @@ import {
   analyser,
   playBreakSound,
 } from "./utils/audioManager";
+import { loadingManager } from "./utils/loadingManager";
 
 export const clock = new THREE.Clock();
 export const scene = new THREE.Scene();
@@ -582,7 +583,7 @@ function fadeOutScreenOverlay() {
 const buildings: THREE.Mesh[] = [];
 
 function createBuildings() {
-  const numBuildings = 200;
+  const numBuildings = 250;
   const minDistance = 50;
   const maxDistance = 1000;
   const minHeight = 5;
@@ -728,12 +729,12 @@ function updateObstaclesGlow() {
   if (!analyser) return;
 
   const beatStrength = analyser.getAverageFrequency();
-  let glowStrength = Math.pow(beatStrength / 256, 2);
-  glowStrength = Math.min(glowStrength, 0.5);
+  let glowStrength = Math.pow(beatStrength / 128, 2);
+  glowStrength = Math.min(glowStrength, 1);
 
-  outlinePass.edgeStrength = 2 + glowStrength * 2.5;
-  outlinePass.edgeGlow = 0.2 + glowStrength * 15;
-  outlinePass.edgeThickness = 2 + glowStrength * 3;
+  outlinePass.edgeStrength = 2 + glowStrength * 5;
+  outlinePass.edgeGlow = 0.2 + glowStrength * 20;
+  outlinePass.edgeThickness = 2 + glowStrength * 5;
 
   const time = clock.getElapsedTime();
   const hue = (time * 0.1) % 1;
@@ -851,7 +852,7 @@ createBuildings();
 spawnWalls(scene, playerZ);
 spawnObstacles();
 
-new EXRLoader().load("/background.exr", (texture) => {
+new EXRLoader(loadingManager).load("/background.exr", (texture) => {
   texture.mapping = THREE.EquirectangularReflectionMapping;
   scene.background = texture;
   scene.environment = texture;

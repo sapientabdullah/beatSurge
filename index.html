@@ -10,6 +10,17 @@
 </head>
 
 <body>
+
+  <div id="loading-screen" class="fixed inset-0 bg-black/75 bg-cover flex items-center justify-center z-50">
+    <div class="text-center text-white">
+      <img class="animate-pulse mb-32" src="https://cloud-qxyig8y0u-hack-club-bot.vercel.app/0generated_image.png"
+        alt="BeatSurge logo" />
+      <div id="progress-bar-container" class="w-full h-6 bg-gray-600 rounded-md relative overflow-hidden">
+        <div id="progress-bar" class="h-full bg-white animate-pulse absolute left-0 top-0"></div>
+      </div>
+    </div>
+  </div>
+
   <div id="controls" class="btns fixed top-12 left-1/2 transform -translate-x-1/2 mt-8 text-center text-white">
     <p>Move</p>
     <div class="flex gap-4 mb-4 justify-center">

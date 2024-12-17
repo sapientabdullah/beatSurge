@@ -1,10 +1,11 @@
 import * as THREE from "three";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { FontLoader, Font } from "three/examples/jsm/loaders/FontLoader.js";
+import { loadingManager } from "./loadingManager";
 
 let font: Font | undefined;
 
-const fontLoader = new FontLoader();
+const fontLoader = new FontLoader(loadingManager);
 fontLoader.load("/fonts/Helvetiker Regular Typeface.json", (loadedFont) => {
   font = loadedFont;
 });

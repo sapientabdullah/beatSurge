@@ -1,6 +1,7 @@
 import * as THREE from "three";
+import { loadingManager } from "./loadingManager";
 
-export const audioLoader = new THREE.AudioLoader();
+export const audioLoader = new THREE.AudioLoader(loadingManager);
 export const listener = new THREE.AudioListener();
 
 export let breakSound: AudioBuffer | undefined;
@@ -54,7 +55,7 @@ export function playWooshSound() {
 
 export function playCrashSound() {
   if (crashSound) {
-    crashSound.stop(); // Stop the current sound if it's already playing
-    crashSound.play(); // Play it again from the start
+    crashSound.stop();
+    crashSound.play();
   }
 }

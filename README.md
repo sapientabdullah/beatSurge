@@ -38,3 +38,6 @@
 - **Post-Processing**: Includes effects like bloom, outlines, and chromatic aberration for enhanced visual fidelity.
 
 ## 📷 Demo
+
+![Demo 1](https://cloud-82qo9e98n-hack-club-bot.vercel.app/0screenshot_2024-12-17_at_20.50.16.jpeg)
+![Demo 2](https://cloud-73d01assc-hack-club-bot.vercel.app/0screenshot_2024-12-17_at_21.01.33.jpeg)
